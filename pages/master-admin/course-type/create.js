@@ -1,0 +1,11 @@
+import FormMaster from "../../../components/utils/FormMaster";
+export default function () {
+  return (
+    <FormMaster
+      title="Course Type"
+      titlePage="Course Type"
+      submitUrl="/api/course-type"
+      method="create"
+    />
+  );
+}

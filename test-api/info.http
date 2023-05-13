@@ -1,0 +1,14 @@
+http://localhost:3000/api/info
+Cookie : {{cookie}}
+
+###
+
+POST http://localhost:3000/api/info
+Cookie : {{cookie}}
+Content-Type: application/json
+
+{
+	"name": "Berita Tes",
+	"description": "ASNfjdsbkjfvbjksnvskjv",
+	"position": "News"
+}

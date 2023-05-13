@@ -1,0 +1,17 @@
+http://localhost:3000/api/student-exchange
+Cookie : {{cookie}}
+
+###
+
+POST http://localhost:3000/api/student-exchange
+Cookie : {{cookie}}
+Content-Type: application/json
+
+{
+	"name": "Student Tes",
+	"student_number": "23243123",
+    "faculty_id": 4,
+	"exchange_with_university": "Univ tes",
+    "start_date": "12-01-2022",
+    "end_date": "12-02-2022"
+}

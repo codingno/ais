@@ -1,0 +1,8 @@
+module.exports = (res, method, handlers) => {
+  if (!Object.keys(handlers).includes(method)) {
+    res.setHeader("Allow", Object.keys(handlers));
+    res.status(405).end(`Method ${method} Not Allowed`);
+  } else {
+    return handlers[method](res);
+  }
+};

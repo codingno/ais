@@ -1,0 +1,16 @@
+http://localhost:3000/api/student-leave
+Cookie : {{cookie}}
+
+###
+
+POST http://localhost:3000/api/student-leave
+Cookie : {{cookie}}
+Content-Type: application/json
+
+{
+	"name": "Student Tes",
+	"student_number": "23243123",
+    "faculty_id": 5,
+	"reason": "move",
+    "date": "12-01-2022"
+}

@@ -1,0 +1,34 @@
+.course-registration ,
+.course-registration th,
+.course-registration td
+{
+  border-collapse: collapse;	
+}
+.course-registration ,
+.course-registration th,
+.course-registration td
+{
+	border: 0.25px solid black;
+	/* border-left: 0.25px solid black;
+	border-top: 0.25px solid black; */
+}
+
+/* .course-registration ,
+.course-registration th:last-child,
+.course-registration td:last-child
+{
+	border-right: 0.25px solid black;
+	border-bottom: 0.25px solid black;
+} */
+
+.course-registration {
+	width: 100%;
+}
+
+.course-registration thead {
+	text-align: center;
+}
+
+.course-registration tbody td {
+	text-align: center;
+}
