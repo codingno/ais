@@ -173,11 +173,12 @@ iframe {
 
 .bg-notfound {
 	opacity: 0.3;
+	opacity: 0;
 	z-index: -1;
 }
 
 .bg-notfound-box span {
-	background-color: #000!important;
+	/* background-color: #000!important; */
 	z-index: -1;
 }
 

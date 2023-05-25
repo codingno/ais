@@ -3,6 +3,8 @@ import NextLink from 'next/link';
 import { Box, Button, Container, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Image from "next/image";
+import { motion } from 'framer-motion';
+import { MotionContainer, varBounceIn } from '../components/animate';
 
 const NotFound = () => (
   <>
@@ -32,7 +34,8 @@ const NotFound = () => (
             align="center"
             // color="textPrimary"
             variant="h1"
-						color="#E3A130"
+						// color="#E3A130"
+						color="#003B5C"
           >
             404: The page you are looking for isn’t here
           </Typography>
@@ -40,29 +43,26 @@ const NotFound = () => (
             align="center"
             // color="textPrimary"
             variant="subtitle2"
-						color="#E3A130"
+						// color="#E3A130"
+						color="#003B5C"
           >
             You either tried some shady route or you came here by mistake.
             Whichever it is, try using the navigation
           </Typography>
           <Box className="bg-notfound-box" sx={{ textAlign: 'center', zIndex : -1, backgroundColor : '#111' }}>
-            <img
-              // alt="Under development"
-              // src="/static/images/undraw_page_not_found_su7k.svg"
+            <Image
               src="/static/bg-notfound.jpeg"
 							className='bg-notfound'
-              // style={{
-              //   marginTop: 50,
-              //   display: 'inline-block',
-              //   maxWidth: '100%',
-							// 	opacity: '0.2',
-							// 	zIndex: -1,
-              // }}
-              // width={1920} 
-              // width={1080} 
 							layout="fill"
             />
           </Box>
+                      <motion.div variants={varBounceIn}>
+              <Box
+                component="img"
+                src="/illustration_404.svg"
+                sx={{ height: 260, mx: 'auto', my: { xs: 5, sm: 10 } }}
+              />
+            </motion.div>
           <NextLink
             href="/"
             passHref
