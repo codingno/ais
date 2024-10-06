@@ -5,7 +5,7 @@ CREATE TABLE `info` (
   `description` VARCHAR(1000) NULL,
   `position` ENUM('Calendar', 'Guides', 'News') NOT NULL DEFAULT 'News',
   `start_date` DATETIME NOT NULL DEFAULT NOW(),
-  `end_date` DATETIME NOT NULL DEFAULT (NOW()+1),
+  `end_date` DATETIME NOT NULL DEFAULT NOW(),
   `status` TINYINT(1) NULL,
   `createdAt` DATETIME NOT NULL DEFAULT NOW(),
   `updatedAt` DATETIME NULL,

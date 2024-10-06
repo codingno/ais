@@ -12,5 +12,6 @@ ALTER TABLE students ADD edu_background_faculty varchar(255) DEFAULT NULL NULL;
 ALTER TABLE students ADD edu_background_departement varchar(255) DEFAULT NULL NULL;
 ALTER TABLE students ADD edu_background_major varchar(255) DEFAULT NULL NULL;
 
+ALTER TABLE academic_schedule ADD teacher_2_id int(11) NULL AFTER teacher_id;
 ALTER TABLE academic_schedule ADD teacher_3_id int(11) NULL AFTER teacher_2_id;
 ALTER TABLE academic_schedule ADD teacher_4_id int(11) NULL AFTER teacher_3_id;

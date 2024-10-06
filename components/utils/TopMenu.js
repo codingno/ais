@@ -76,22 +76,22 @@ const topMenuList = [
       {
         name: "Curriculums",
         link: "academic/curriculum",
-        role: [2,5],
+        role: [2, 5],
       },
       {
         name: "Courses",
         link: "academic/course",
-        role: [2,5],
+        role: [2, 5],
       },
       {
         name: "Course Schedule",
         link: "academic/schedule",
-        role: [2,3,5],
+        role: [2, 3, 5],
       },
       {
         name: "Courses Approval",
         link: "academic/courses-approval",
-        role: [2,3],
+        role: [2, 3],
       },
       {
         name: "Courses Selection",
@@ -101,7 +101,7 @@ const topMenuList = [
       {
         name: "Grade",
         link: "academic/grade",
-        role: [3,4,5],
+        role: [3, 4, 5],
       },
       {
         name: "Academic Transcript",
@@ -118,7 +118,7 @@ const topMenuList = [
   },
   {
     name: "Master Data",
-    role: [2,5],
+    role: [2, 5],
     child: [
       {
         name: "University Identity",
@@ -128,22 +128,22 @@ const topMenuList = [
       {
         name: "Faculty",
         link: "master/faculty",
-        role: [2,5],
+        role: [2, 5],
       },
       {
         name: "Study Program",
         link: "master/departement",
-        role: [2,5],
+        role: [2, 5],
       },
       {
         name: "Lecturer",
         link: "master/teacher",
-        role: [2,5],
+        role: [2, 5],
       },
       {
         name: "Student",
         link: "master/student",
-        role: [2,5],
+        role: [2, 5],
       },
     ],
   },
@@ -156,7 +156,7 @@ const topMenuList = [
   {
     name: "Academic Portfolio",
     width: 380,
-    role: [4,],
+    role: [4],
     child: [
       {
         name: "Professional Development",
@@ -293,10 +293,12 @@ function ChildMenu({ child }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const renderChild = child.map((item, index) => {
-
-    if(item.name == "Courses Approval") {
-      if(session?.user?.teacherData?.id != session?.user?.teacherData?.departement?.teacher_id)
-        return ""
+    if (item.name == "Courses Approval") {
+      if (
+        session?.user?.teacherData?.id !=
+        session?.user?.teacherData?.departement?.teacher_id
+      )
+        return "";
     }
 
     return (
@@ -328,8 +330,12 @@ function ItemMenu({ menu }) {
   const filterMenu = menu.child
     ? session.user.isAdmin
       ? menu.child
-      // : menu.child.filter((item) => item.role >= session.user.role_id)
-      : menu.child.filter(item => Array.isArray(item.role) ? item.role.indexOf(session.user.role_id) >= 0 : item.role == session.user.role_id)
+      : // : menu.child.filter((item) => item.role >= session.user.role_id)
+        menu.child.filter((item) =>
+          Array.isArray(item.role)
+            ? item.role.indexOf(session.user.role_id) >= 0
+            : item.role == session.user.role_id
+        )
     : [];
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -376,7 +382,7 @@ function ParentMenu({ menu }) {
   const { data: session, status } = useSession();
   // const filterMenu = menu.filter(item => item.role >= session.user.role_id)
   let filterMenu = session.user.isAdmin
-    ? menu
+    ? menu.filter((_, idx) => idx !== 0)
     : menu.filter((item) => item.role.indexOf(session.user.role_id) > -1);
   // if(session.user.isAdmin)
   // 	filterMenu.shift()
@@ -390,9 +396,9 @@ export default function (props) {
   const router = useRouter();
   const { data: session, status } = useSession();
 
-  if(status == 'unauthenticated') {
-    router.push("/auth/signin")
-    return ""
+  if (status == "unauthenticated") {
+    router.push("/auth/signin");
+    return "";
   }
 
   return (
@@ -417,7 +423,7 @@ export default function (props) {
           m={1}
         >
           <ImageWithLoader
-          // <img
+            // <img
             src="/static/homepage-logo.png"
             alt="logo"
             width={363}

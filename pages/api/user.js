@@ -1,6 +1,7 @@
 // This is an example of how to read a JSON Web Token from an API route
 import { getToken } from 'next-auth/jwt'
 import apiHandler from '../../utils/api-handler';
+import UserServices from '../../services/UserServices'
 
 const secret = process.env.SECRET
 
@@ -11,7 +12,14 @@ export default async (req, res) => {
   const token = await getToken({ req, secret })
   // res.send(JSON.stringify(token, null, 2))
 	apiHandler(res, req.method, {
-    POST: (response) => {
+    POST: async (response) => {
+      // const body = req.body;
+      // try {
+      //   const user_id = await UserServices.create(body);
+      //   return res.status(200).json({ user_id });
+      // } catch (error) {
+      //   return res.status(500).json({ error });
+      // }
       // models.User.create({ name }, (error, user) => {
       //   if (error) {
       //     connection.close();
